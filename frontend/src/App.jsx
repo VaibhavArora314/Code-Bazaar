@@ -12,9 +12,16 @@ import Profile from "./pages/Profile";
 function App() {
   return (
     <>
-      {/* <NavBar /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <NavBar />
+              <Home />
+            </>
+          }
+        />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
         <Route path="/products" element={<ProductsList />} />
