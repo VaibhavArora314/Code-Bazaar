@@ -1,18 +1,30 @@
-import { Box, Badge, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Flex, Text, Badge } from '@chakra-ui/react';
 
-const ProductCard = ({ product, income, rating }) => {
+const ProductCard = ({ name, price, sales }) => {
+  const totalIncome = price * sales;
+
   return (
-    <Box borderWidth="1px" borderRadius="lg" p={4}>
-      <Heading size="md" mb={2}>
-        {product}
-      </Heading>
+    <Box
+      borderWidth="1px"
+      borderRadius="lg"
+      p={4}
+      boxShadow="md"
+      maxW="300px"
+    >
+      <Text fontSize="lg" fontWeight="bold" mb={2}>
+        {name}
+      </Text>
       <Flex justifyContent="space-between" mb={2}>
-        <Text fontWeight="bold">Current Income:</Text>
-        <Text>{income}</Text>
+        <Text fontWeight="bold">Price:</Text>
+        <Text>${price}</Text>
+      </Flex>
+      <Flex justifyContent="space-between" mb={2}>
+        <Text fontWeight="bold">Sales:</Text>
+        <Text>{sales}</Text>
       </Flex>
       <Flex justifyContent="space-between">
-        <Text fontWeight="bold">Rating:</Text>
-        <Badge colorScheme="green">{rating}</Badge>
+        <Text fontWeight="bold">Total Income:</Text>
+        <Badge colorScheme="green">${totalIncome}</Badge>
       </Flex>
     </Box>
   );
