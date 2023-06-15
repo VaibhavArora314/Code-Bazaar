@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-export default function LoginPage() {
+export default function Login() {
   return (
     <Flex
       minH={"100vh"}
@@ -54,7 +54,7 @@ export default function LoginPage() {
                   bg: "#000",
                 }}
               >
-                Sign in
+                Log In
               </Button>
               <Stack>
                 <Text align={"center"}>

@@ -30,7 +30,7 @@ export default function Register() {
       <Stack spacing={8} mx={"auto"} w={{ base: "sm", md: "md" }} py={4} px={6}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"} textAlign={"center"}>
-            Sign up
+            Register
           </Heading>
         </Stack>
         <Box
@@ -74,7 +74,7 @@ export default function Register() {
                   bg: "#000",
                 }}
               >
-                Sign up
+                Register
               </Button>
             </Stack>
             <Stack pt={6}>
