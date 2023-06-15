@@ -3,6 +3,7 @@ import HomeCategoryCards from "../components/HomeCategoryCards";
 import { Flex, Heading } from "@chakra-ui/react";
 import bgImage from "../assets/BackgroundImage.jpg";
 import UpdateForm from "../components/updateProfileComponent";
+import Login from "../components/Logintest";
 
 function Home(props) {
   const product = {
@@ -30,8 +31,7 @@ function Home(props) {
           Welcome to the World of Technology!
         </Heading>
       </Flex>
-
-
+      <Login/>
       <HomeCategoryCards />
     </>
   );
