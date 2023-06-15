@@ -118,7 +118,7 @@ app.post('/api/users/register', async (req, res) => {
     const user = new User({ name, email, password: hashedPassword });
 
     await user.save();
-    res.json({ message: 'User registered successfully' });
+    res.json({ message: 'User registered successfully' ,user});
   } catch (error) {
     res.status(500).json({ error: 'Failed to register user' });
   }
@@ -144,7 +144,7 @@ app.post('/api/users/login', async (req, res) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     res.cookie('token', token, { httpOnly: true });
-    res.json({ message: 'User logged in successfully' });
+    res.json({ message: 'User logged in successfully' ,user});
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Failed to log in' });
