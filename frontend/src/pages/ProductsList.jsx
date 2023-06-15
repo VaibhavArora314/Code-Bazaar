@@ -1,78 +1,43 @@
-import {
-  Box,
-  Center,
-  useColorModeValue,
-  Heading,
-  Text,
-  Stack,
-  Image,
-} from "@chakra-ui/react";
-import DemoProduct from "../assets/Products/Demo.jpg";
+import { Flex, Heading, Select } from "@chakra-ui/react";
+import ProductsCard from "../components/ProductsCard";
+import { useState } from "react";
 
-const IMAGE = DemoProduct;
+const CATEGORIES = ["AI/ML", "Web Dev", "App Dev", "Web3"];
 
 export default function ProductsList() {
+  const [selectedCategory, setSelectedCategogry] = useState("");
+
   return (
-    <Center py={12}>
-      <Box
-        role={"group"}
-        p={6}
-        maxW={"330px"}
-        w={"full"}
-        bg={useColorModeValue("white", "gray.800")}
-        boxShadow={"2xl"}
-        rounded={"lg"}
-        pos={"relative"}
-        zIndex={1}
-      >
-        <Box
-          rounded={"lg"}
-          mt={-12}
-          pos={"relative"}
-          height={"230px"}
-          _after={{
-            transition: "all .3s ease",
-            content: '""',
-            w: "full",
-            h: "full",
-            pos: "absolute",
-            top: 5,
-            left: 0,
-            backgroundImage: `url(${IMAGE})`,
-            filter: "blur(15px)",
-            zIndex: -1,
-          }}
-          _groupHover={{
-            _after: {
-              filter: "blur(20px)",
-            },
-          }}
+    <Flex m="4" p="2">
+      <Flex w="md" direction="column" p="2" gap="4">
+        <Heading size="md">Filters</Heading>
+        <Select
+          placeholder="Select Category"
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategogry(e.target.value)}
         >
-          <Image
-            rounded={"lg"}
-            height={230}
-            width={282}
-            objectFit={"cover"}
-            src={IMAGE}
-          />
-        </Box>
-        <Stack pt={10} align={"center"}>
-          <Text color={"gray.500"} fontSize={"sm"} textTransform={"uppercase"}>
-            category
-          </Text>
-          <Heading fontSize={"2xl"} fontFamily={"body"} fontWeight={500}>
-            Title
-          </Heading>
-          <Stack direction={"row"} align={"center"}>
-            <Text fontWeight={800} fontSize={"xl"}>
-              $57
-            </Text>
-            <Text textDecoration={"line-through"} color={"gray.600"}>
-              $199
-            </Text>
-          </Stack>
-        </Stack>
-      </Box>
-    </Center>
+          {CATEGORIES.map((category, index) => (
+            <option key={index} value={category}>
+              {category}
+            </option>
+          ))}
+        </Select>
+      </Flex>
+      <Flex
+        gap="4"
+        p="2"
+        me="0"
+        wrap="wrap"
+        justifyContent="space-evenly"
+        alignItems="center"
+      >
+        <ProductsCard />
+        <ProductsCard />
+        <ProductsCard />
+        <ProductsCard />
+        <ProductsCard />
+        <ProductsCard />
+      </Flex>
+    </Flex>
   );
 }
