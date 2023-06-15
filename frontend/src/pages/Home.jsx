@@ -1,6 +1,7 @@
 import React from "react";
 import ProductsCard from "../components/ProductsCard";
 import NavBar from "../components/NavBar";
+import HomeCategoryCards from "../components/HomeCategoryCards";
 
 function Home(props) {
   const product = {
@@ -21,6 +22,7 @@ function Home(props) {
         price={product.price}
         category={product.category}
       />
+      <HomeCategoryCards/>
     </div>
   );
 }
