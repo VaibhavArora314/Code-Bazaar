@@ -1,9 +1,7 @@
 import React from "react";
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Box, Flex, Image, Text, Heading } from "@chakra-ui/react";
 import "swiper/swiper.min.css";
 import BlackLogo from "../assets/Website Logo/logo-black.png";
-import ProductsCard from "./ProductsCard";
 import CategoryCard from "./Categorycard";
 import AppDev from "../assets/Home_Page_Icons/AppDevelopment.jpg";
 import AI from "../assets/Home_Page_Icons/ArtificialIntelligence.jpg";
@@ -41,7 +39,9 @@ const HomeCategoryCards = () => {
 
   return (
     <>
-      {/* <Heading alignSelf="center">Explore Categories</Heading> */}
+      <Flex m="10" alignItems="center" justifyContent="center">
+        <Heading me="md">Explore Categories</Heading>
+      </Flex>
       <Flex
         gap="1"
         p="2"
