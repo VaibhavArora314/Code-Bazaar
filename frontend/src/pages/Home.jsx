@@ -4,6 +4,7 @@ import { Flex, Heading } from "@chakra-ui/react";
 import bgImage from "../assets/BackgroundImage.jpg";
 import UpdateForm from "../components/updateProfileComponent";
 import Login from "../components/Logintest";
+import Registration from "../components/RegisterTest";
 
 function Home(props) {
   const product = {
@@ -32,6 +33,7 @@ function Home(props) {
         </Heading>
       </Flex>
       <Login/>
+      <Registration/>
       <HomeCategoryCards />
     </>
   );
