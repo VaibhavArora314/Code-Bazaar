@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   id: "",
   username: "",
   email: "",
-  isAdmin: "",
+  // isAdmin: "",
 };
 
 export const AuthProvider = ({ children }) => {
@@ -32,7 +32,8 @@ export const AuthProvider = ({ children }) => {
     return user && user.id && user.isAdmin;
   };
   return (
-    <AuthContext.Provider value={ {user, isAuthenticated, isAdminUser} }>
+    // <AuthContext.Provider value={ {user, isAuthenticated, isAdminUser} }>
+    <AuthContext.Provider value={ {user, isAuthenticated} }>
       {children}
     </AuthContext.Provider>
   );
