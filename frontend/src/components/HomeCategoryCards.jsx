@@ -54,45 +54,6 @@ const HomeCategoryCards = () => {
         <CategoryCard title="App Dev" image={AppDev} />
       </Flex>
     </>
-    // return <Swiper
-    //   spaceBetween={0} // Adjust the spacing value here
-    //   slidesPerView={5}
-    //   breakpoints={{
-    //     640: {
-    //       slidesPerView: 1,
-    //       spaceBetween: 0,
-    //     },
-    //     768: {
-    //       slidesPerView: 2,
-    //       spaceBetween: 20,
-    //     },
-    //     1024: {
-    //       slidesPerView: 3,
-    //       spaceBetween: 30,
-    //     },
-    //   }}
-    // >
-    //   {categories.map((category) => (
-    //     <SwiperSlide key={category.id}>
-    //       <Box maxW="200px" p={4} borderWidth={1} borderRadius="3xl">
-    //         <Image
-    //           src={category.imageSrc}
-    //           alt={category.title}
-    //           borderRadius="3xl"
-    //         />
-    //         <Text
-    //           mt={2}
-    //           fontSize="lg"
-    //           fontWeight="bold"
-    //           textAlign="center"
-    //           borderRadius="3xl"
-    //         >
-    //           {category.title}
-    //         </Text>
-    //       </Box>
-    //     </SwiperSlide>
-    //   ))}
-    // </Swiper>
   );
 };
 
