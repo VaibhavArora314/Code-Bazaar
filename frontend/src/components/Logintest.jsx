@@ -10,7 +10,12 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:4000/api/users/login', { email, password });
+      const response = await axios.post('http://localhost:4000/api/users/login', { email, password },{
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
       console.log(response.data); // Handle the response data according to your requirements
     } catch (error) {
       console.error(error);
