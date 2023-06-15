@@ -16,7 +16,7 @@ export async function getAllListings() {
 export async function getProductById(productId) {
   try {
     const response = await axios.get(
-      `https://localhost:4000/api/listings${productId}`
+      `https://localhost:4000/api/listings/${productId}`
     );
 
     const product = response.data;
