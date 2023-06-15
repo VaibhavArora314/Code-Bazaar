@@ -2,20 +2,11 @@ import React from "react";
 import HomeCategoryCards from "../components/HomeCategoryCards";
 import { Flex, Heading } from "@chakra-ui/react";
 import bgImage from "../assets/BackgroundImage.jpg";
-import UpdateForm from "../components/updateProfileComponent";
 import Login from "../components/Logintest";
 import Registration from "../components/RegisterTest";
 import Listings from "../components/AllListingTesting";
 
 function Home(props) {
-  const product = {
-    title: "Product Title",
-    image: "..srcassetsWebsite Logologo-black.png",
-    description: "Product description goes here",
-    price: 19.99,
-    category: "Category",
-  };
-
   return (
     <>
       <Flex
@@ -33,9 +24,6 @@ function Home(props) {
           Welcome to the World of Technology!
         </Heading>
       </Flex>
-      <Login/>
-      <Registration/>
-      <Listings/>
       <HomeCategoryCards />
     </>
   );
