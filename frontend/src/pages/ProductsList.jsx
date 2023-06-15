@@ -9,8 +9,8 @@ export default function ProductsList() {
   const [selectedCategory, setSelectedCategogry] = useState("");
 
   return (
-    <Flex m="4" p="2">
-      <Flex w="md" direction="column" p="2" gap="4">
+    <Flex m="4" p="2" direction={{base:"column",sm:"row"}}>
+      <Flex w={{ base: "full", sm: "md" }} direction="column" p="2" gap="4">
         <Heading size="md">Filters</Heading>
         <Select
           placeholder="Select Category"

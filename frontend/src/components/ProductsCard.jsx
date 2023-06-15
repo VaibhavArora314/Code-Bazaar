@@ -10,7 +10,7 @@ function ProductsCard(props) {
       textDecoration="none"
       role={"group"}
       pb={8}
-      w={"80"}
+      w={{ base: "50", sm: "60", md: "80" }}
       bg={"white"}
       _hover={{
         boxShadow: "2xl",

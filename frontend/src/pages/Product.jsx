@@ -10,8 +10,6 @@ import {
   SimpleGrid,
   useColorModeValue,
 } from "@chakra-ui/react";
-// import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-// import { MdLocalShipping } from "react-icons/md";
 import DemoProduct from "../assets/Products/Demo.jpg";
 
 export default function ProductPage() {
