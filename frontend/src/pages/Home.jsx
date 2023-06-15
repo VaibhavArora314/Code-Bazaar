@@ -5,6 +5,7 @@ import bgImage from "../assets/BackgroundImage.jpg";
 import UpdateForm from "../components/updateProfileComponent";
 import Login from "../components/Logintest";
 import Registration from "../components/RegisterTest";
+import Listings from "../components/AllListingTesting";
 
 function Home(props) {
   const product = {
@@ -34,6 +35,7 @@ function Home(props) {
       </Flex>
       <Login/>
       <Registration/>
+      <Listings/>
       <HomeCategoryCards />
     </>
   );
