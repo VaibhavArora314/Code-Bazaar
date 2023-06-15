@@ -23,7 +23,6 @@ function Home(props) {
         </Heading>
       </Flex>
       <HomeCategoryCards />
-      <ProductPage />
     </>
   );
 }

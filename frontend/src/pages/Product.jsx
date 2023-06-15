@@ -40,6 +40,15 @@ export default function ProductPage() {
         setError(true);
       });
   }, []);
+
+  if (error)
+    return (
+      <Flex h="80vh" alignItems="center" justifyContent="center">
+        {" "}
+        <Heading size="lg">No such product exists!</Heading>
+      </Flex>
+    );
+
   return (
     <Container maxW={"7xl"} px="20" pb="10">
       <SimpleGrid
