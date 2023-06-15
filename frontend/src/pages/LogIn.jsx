@@ -11,9 +11,23 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { user, login } = useContext(AuthContext);
+
+  if (user && user.id) return <Navigate to="/" />;
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    if (password && email) login(email, password);
+  };
+
   return (
     <Flex
       minH={"80vh"}
@@ -37,40 +51,55 @@ export default function Login() {
           boxShadow={"lg"}
           p={8}
         >
-          <Stack spacing={3}>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input type="password" />
-            </FormControl>
-            <Stack spacing={8}>
-              <Button
-                bg={"#232020"}
-                color={"white"}
-                _hover={{
-                  bg: "#000",
-                }}
-              >
-                Log In
-              </Button>
-              <Stack>
-                <Text align={"center"}>
-                  Don't have an account?{" "}
-                  <Link
-                    style={{
-                      color: "#55aaff",
-                    }}
-                    to="/register"
-                  >
-                    Register
-                  </Link>
-                </Text>
+          <form onSubmit={handleLogin}>
+            <Stack spacing={3}>
+              <FormControl id="email">
+                <FormLabel>Email address</FormLabel>
+                <Input
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+              </FormControl>
+              <FormControl id="password">
+                <FormLabel>Password</FormLabel>
+                <Input
+                  type="password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+              </FormControl>
+              <Stack spacing={8}>
+                <Button
+                  bg={"#232020"}
+                  color={"white"}
+                  _hover={{
+                    bg: "#000",
+                  }}
+                  type="submit"
+                >
+                  Log In
+                </Button>
+                <Stack>
+                  <Text align={"center"}>
+                    Don't have an account?{" "}
+                    <Link
+                      style={{
+                        color: "#55aaff",
+                      }}
+                      to="/register"
+                    >
+                      Register
+                    </Link>
+                  </Text>
+                </Stack>
               </Stack>
             </Stack>
-          </Stack>
+          </form>
         </Box>
       </Stack>
     </Flex>
