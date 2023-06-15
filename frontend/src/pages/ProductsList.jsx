@@ -1,6 +1,7 @@
 import { Flex, Heading, Select } from "@chakra-ui/react";
 import ProductsCard from "../components/ProductsCard";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CATEGORIES = ["AI/ML", "Web Dev", "App Dev", "Web3"];
 
@@ -31,12 +32,27 @@ export default function ProductsList() {
         justifyContent="space-evenly"
         alignItems="center"
       >
-        <ProductsCard />
-        <ProductsCard />
-        <ProductsCard />
-        <ProductsCard />
-        <ProductsCard />
-        <ProductsCard />
+        <Link to="/products/1">
+          <ProductsCard />
+        </Link>
+        <Link to="/products/1">
+          <ProductsCard />
+        </Link>{" "}
+        <Link to="/products/1">
+          <ProductsCard />
+        </Link>{" "}
+        <Link to="/products/1">
+          <ProductsCard />
+        </Link>{" "}
+        <Link to="/products/1">
+          <ProductsCard />
+        </Link>
+        <Link to="/products/1">
+          <ProductsCard />
+        </Link>{" "}
+        <Link to="/products/1">
+          <ProductsCard />
+        </Link>
       </Flex>
     </Flex>
   );

@@ -7,6 +7,7 @@ function ProductsCard(props) {
 
   return (
     <Box
+      textDecoration="none"
       role={"group"}
       pb={8}
       w={"80"}
