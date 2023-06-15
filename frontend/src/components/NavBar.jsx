@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Flex,
@@ -17,8 +17,10 @@ import {
 import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 import BlackLogo from "../assets/Website Logo/logo-black-cropped.png";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
 const NavBar = ({ LoginRegisterPage = false }) => {
+  const { isAuthenticated, logout } = useContext(AuthContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -72,12 +74,18 @@ const NavBar = ({ LoginRegisterPage = false }) => {
             </Link>
             {!LoginRegisterPage && (
               <>
-                <Link to="/profile">
-                  <MenuItem>Profile</MenuItem>
-                </Link>
-                <Link to="/login">
-                  <MenuItem>Login / SignUp</MenuItem>
-                </Link>
+                {!isAuthenticated() ? (
+                  <Link to="/login">
+                    <MenuItem>Login / SignUp</MenuItem>
+                  </Link>
+                ) : (
+                  <>
+                    <Link to="/profile">
+                      <MenuItem>Profile</MenuItem>
+                    </Link>
+                    <MenuItem onClick={logout}>Logout</MenuItem>
+                  </>
+                )}
               </>
             )}
           </MenuList>
@@ -95,22 +103,37 @@ const NavBar = ({ LoginRegisterPage = false }) => {
           </Link>
           {!LoginRegisterPage && (
             <>
-              <Link to="/profile">
-                <Button variant="ghost" mr={4}>
-                  Profile
-                </Button>
-              </Link>
-              <Link to="/login">
-                <Button
-                  variant="outline"
-                  bgColor="#232020"
-                  color="white"
-                  _hover={{ bgColor: "#000" }}
-                  borderRadius="xl"
-                >
-                  Login / SignUp
-                </Button>
-              </Link>
+              {!isAuthenticated() ? (
+                <Link to="/login">
+                  <Button
+                    variant="outline"
+                    bgColor="#232020"
+                    color="white"
+                    _hover={{ bgColor: "#000" }}
+                    borderRadius="xl"
+                  >
+                    Login / SignUp
+                  </Button>
+                </Link>
+              ) : (
+                <>
+                  <Link to="/profile">
+                    <Button variant="ghost" mr={4}>
+                      Profile
+                    </Button>
+                  </Link>
+                  <Button
+                    onClick={logout}
+                    variant="outline"
+                    bgColor="#232020"
+                    color="white"
+                    _hover={{ bgColor: "#000" }}
+                    borderRadius="xl"
+                  >
+                    Logout
+                  </Button>
+                </>
+              )}
             </>
           )}
         </Box>

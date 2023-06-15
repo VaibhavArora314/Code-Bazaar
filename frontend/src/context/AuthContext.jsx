@@ -18,7 +18,12 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    //TODO: get user details here
+    const cookies = document.cookie.split(";");
+
+    cookies.forEach((cookie) => {
+      const cookieName = cookie.split("=")[0].trim();
+      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    });
 
     setLoading(false);
   }, []);
@@ -29,9 +34,9 @@ export const AuthProvider = ({ children }) => {
     return user && user.id;
   };
 
-  const isAdminUser = () => {
-    return user && user.id && user.isAdmin;
-  };
+  // const isAdminUser = () => {
+  //   return user && user.id && user.isAdmin;
+  // };
 
   const login = async (email, password) => {
     try {
@@ -89,9 +94,20 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const logout = () => {
+    setUser(INITIAL_STATE);
+    const cookies = document.cookie.split(";");
+
+    cookies.forEach((cookie) => {
+      const cookieName = cookie.split("=")[0].trim();
+      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    });
+  };
+
   return (
-    // <AuthContext.Provider value={ {user, isAuthenticated, isAdminUser} }>
-    <AuthContext.Provider value={{ user, isAuthenticated, login, register }}>
+    <AuthContext.Provider
+      value={{ user, isAuthenticated, login, register, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );
