@@ -6,36 +6,9 @@ import AppDev from "../assets/Home_Page_Icons/AppDevelopment.jpg";
 import AI from "../assets/Home_Page_Icons/ArtificialIntelligence.jpg";
 import WebDev from "../assets/Home_Page_Icons/WebDevelopment.jpg";
 import Web3 from "../assets/Home_Page_Icons/Web3&Blockchain.jpg";
+import { Link } from "react-router-dom";
 
 const HomeCategoryCards = () => {
-  const categories = [
-    {
-      id: 1,
-      title: "Category 1",
-      imageSrc: BlackLogo,
-    },
-    {
-      id: 2,
-      title: "Category 2",
-      imageSrc: BlackLogo,
-    },
-    {
-      id: 3,
-      title: "Category 3",
-      imageSrc: BlackLogo,
-    },
-    {
-      id: 4,
-      title: "Category 4",
-      imageSrc: BlackLogo,
-    },
-    {
-      id: 5,
-      title: "Category 5",
-      imageSrc: BlackLogo,
-    },
-  ];
-
   return (
     <>
       <Flex m="10" alignItems="center" justifyContent="center">
@@ -48,10 +21,18 @@ const HomeCategoryCards = () => {
         justifyContent="space-evenly"
         alignItems="center"
       >
-        <CategoryCard title="AI/ML" image={AI} />
-        <CategoryCard title="Web3" image={Web3} />
-        <CategoryCard title="Web Dev" image={WebDev} />
-        <CategoryCard title="App Dev" image={AppDev} />
+        <Link to="/products?c=AI/ML">
+          <CategoryCard title="AI/ML" image={AI} />
+        </Link>
+        <Link to="/products?c=Web3">
+          <CategoryCard title="Web3" image={Web3} />
+        </Link>
+        <Link to="/products?c=Web Dev">
+          <CategoryCard title="Web Dev" image={WebDev} />
+        </Link>
+        <Link to="/products?c=App Dev">
+          <CategoryCard title="App Dev" image={AppDev} />
+        </Link>
       </Flex>
     </>
   );

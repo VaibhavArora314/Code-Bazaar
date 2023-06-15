@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   Box,
   Flex,
@@ -16,12 +16,19 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 import BlackLogo from "../assets/Website Logo/logo-black-cropped.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
 const NavBar = ({ LoginRegisterPage = false }) => {
   const { isAuthenticated, logout } = useContext(AuthContext);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen } = useDisclosure();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    navigate(`/products?s=${searchQuery}`);
+  };
 
   return (
     <Flex
@@ -45,9 +52,24 @@ const NavBar = ({ LoginRegisterPage = false }) => {
             borderRadius="lg"
             display={{ base: "none", sm: "block" }}
             _focus={{ outlineColor: "#000" }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSearch();
+            }}
           >
-            <InputLeftElement pointerEvents="none" children={<SearchIcon />} />
-            <Input type="text" placeholder="Search" borderRadius="2xl" />
+            <InputLeftElement
+              pointerEvents="none"
+              children={<SearchIcon />}
+              v
+            />
+            <Input
+              type="text"
+              placeholder="Search"
+              borderRadius="2xl"
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+              }}
+            />
           </InputGroup>
         )}
       </Box>

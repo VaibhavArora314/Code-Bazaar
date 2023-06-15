@@ -2,9 +2,7 @@ import React from "react";
 import { Box, Image, Badge, Text, Stack, Heading } from "@chakra-ui/react";
 import DemoProduct from "../assets/Products/Demo.jpg";
 
-function ProductsCard(props) {
-  // const { title, image, description, price, category } = props;
-
+function ProductsCard({ product }) {
   return (
     <Box
       textDecoration="none"
@@ -28,25 +26,20 @@ function ProductsCard(props) {
           // height={"60"}
           width={"full"}
           objectFit={"cover"}
-          src=""
+          src={product.image ? product.image : ""}
           fallbackSrc={DemoProduct}
         />
       </Box>
       <Stack pt={8} align={"center"}>
         <Text color={"gray.500"} fontSize={"sm"} textTransform={"uppercase"}>
-          category
+          {product.category}
         </Text>
         <Heading fontSize={"2xl"} fontFamily={"body"} fontWeight={500}>
-          Title
+          {product.title}
         </Heading>
-        <Stack direction={"row"} align={"center"}>
-          <Text fontWeight={800} fontSize={"xl"}>
-            $57
-          </Text>
-          <Text textDecoration={"line-through"} color={"gray.600"}>
-            $199
-          </Text>
-        </Stack>
+        <Text fontWeight={800} fontSize={"xl"}>
+          ${product.price}
+        </Text>
       </Stack>
     </Box>
   );

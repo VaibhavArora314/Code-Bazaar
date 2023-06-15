@@ -2,9 +2,6 @@ import React from "react";
 import HomeCategoryCards from "../components/HomeCategoryCards";
 import { Flex, Heading } from "@chakra-ui/react";
 import bgImage from "../assets/BackgroundImage.jpg";
-import Login from "../components/Logintest";
-import Registration from "../components/RegisterTest";
-import Listings from "../components/AllListingTesting";
 import ProductPage from "../components/Addproducttesting";
 
 function Home(props) {
@@ -26,7 +23,7 @@ function Home(props) {
         </Heading>
       </Flex>
       <HomeCategoryCards />
-      <ProductPage/>
+      <ProductPage />
     </>
   );
 }

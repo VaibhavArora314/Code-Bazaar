@@ -1,15 +1,40 @@
 import { Flex, Heading, Select } from "@chakra-ui/react";
 import ProductsCard from "../components/ProductsCard";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import axios from "axios";
 
 const CATEGORIES = ["AI/ML", "Web Dev", "App Dev", "Web3"];
 
 export default function ProductsList() {
-  const [selectedCategory, setSelectedCategogry] = useState("");
+  const [searchParams] = useSearchParams();
+  const [selectedCategory, setSelectedCategogry] = useState(
+    searchParams.get("c") ? searchParams.get("c") : ""
+  );
+  const [products, setProducts] = useState([]);
+
+  const searchQuery = searchParams.get("s") ? searchParams.get("s") : "";
+
+  useEffect(() => {
+    // Fetch all listings from the API
+    axios
+      .get(
+        "http://localhost:4000/api/listings",
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
-    <Flex m="4" p="2" direction={{base:"column",sm:"row"}}>
+    <Flex m="4" p="2" pb="5" direction={{ base: "column", sm: "row" }}>
       <Flex w={{ base: "full", sm: "md" }} direction="column" p="2" gap="4">
         <Heading size="md">Filters</Heading>
         <Select
@@ -32,27 +57,19 @@ export default function ProductsList() {
         justifyContent="space-evenly"
         alignItems="center"
       >
-        <Link to="/products/1">
-          <ProductsCard />
-        </Link>
-        <Link to="/products/1">
-          <ProductsCard />
-        </Link>{" "}
-        <Link to="/products/1">
-          <ProductsCard />
-        </Link>{" "}
-        <Link to="/products/1">
-          <ProductsCard />
-        </Link>{" "}
-        <Link to="/products/1">
-          <ProductsCard />
-        </Link>
-        <Link to="/products/1">
-          <ProductsCard />
-        </Link>{" "}
-        <Link to="/products/1">
-          <ProductsCard />
-        </Link>
+        {products
+          .filter(
+            (product) =>
+              product.title.includes(searchQuery) &&
+              (selectedCategory === ""
+                ? true
+                : selectedCategory === product.category)
+          )
+          .map((product) => (
+            <Link to={`/products/${product._id}`} key={product._id}>
+              <ProductsCard product={product} />
+            </Link>
+          ))}
       </Flex>
     </Flex>
   );
