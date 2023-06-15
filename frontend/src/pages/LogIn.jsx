@@ -21,7 +21,13 @@ export default function LoginPage() {
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
     >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} w="md" py={12} px={6}>
+      <Stack
+        spacing={8}
+        mx={"auto"}
+        w={{ base: "sm", md: "md" }}
+        py={12}
+        px={6}
+      >
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>Log In</Heading>
         </Stack>
