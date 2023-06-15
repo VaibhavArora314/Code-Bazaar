@@ -24,6 +24,6 @@ export async function getProductById(productId) {
     return product;
   } catch (error) {
     console.error(error);
-    // Handle the error appropriately
+    throw "No product exist with this name";
   }
 }
