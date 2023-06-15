@@ -23,8 +23,24 @@ function App() {
             </>
           }
         />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/login"
+          element={
+            <>
+              <NavBar LoginRegisterPage={true} />
+              <LogIn />
+            </>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <>
+              <NavBar LoginRegisterPage={true} />
+              <Register />
+            </>
+          }
+        />
         <Route
           path="/products"
           element={

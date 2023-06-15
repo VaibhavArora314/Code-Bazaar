@@ -27,7 +27,7 @@ function Home(props) {
         justifyContent="center"
       >
         <Heading color="white" textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)">
-          Welcome to the World of Technology
+          Welcome to the World of Technology!
         </Heading>
       </Flex>
 

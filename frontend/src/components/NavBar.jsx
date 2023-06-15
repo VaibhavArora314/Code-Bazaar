@@ -14,7 +14,7 @@ import { FiSearch } from "react-icons/fi";
 import BlackLogo from "../assets/Website Logo/logo-black-cropped.png";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ LoginRegisterPage = false }) => {
   return (
     <Flex
       as="nav"
@@ -52,24 +52,28 @@ const NavBar = () => {
             Explore
           </Button>
         </Link>
-        <Link to="/profile">
-          <Button variant="ghost" mr={4}>
-            Profile
-          </Button>
-        </Link>
-        <Link to="/login">
-          <Button
-            variant="outline"
-            bgColor="#232020"
-            color="white"
-            _hover={{
-              bgColor: "#000",
-            }}
-            borderRadius="xl"
-          >
-            Login / SignUp
-          </Button>
-        </Link>
+        {!LoginRegisterPage && (
+          <>
+            <Link to="/profile">
+              <Button variant="ghost" mr={4}>
+                Profile
+              </Button>
+            </Link>
+            <Link to="/login">
+              <Button
+                variant="outline"
+                bgColor="#232020"
+                color="white"
+                _hover={{
+                  bgColor: "#000",
+                }}
+                borderRadius="xl"
+              >
+                Login / SignUp
+              </Button>
+            </Link>
+          </>
+        )}
       </Box>
     </Flex>
   );
