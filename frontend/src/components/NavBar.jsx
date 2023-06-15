@@ -33,17 +33,19 @@ const NavBar = ({ LoginRegisterPage = false }) => {
         {/* <Text fontSize="lg" fontWeight="bold">
           Logo
         </Text> */}
-        <InputGroup
-          ml={10}
-          width="300px"
-          borderRadius="md"
-          _focus={{
-            outlineColor: "#000",
-          }}
-        >
-          <InputLeftElement pointerEvents="none" children={<FiSearch />} />
-          <Input type="text" placeholder="Search" borderRadius="2xl" />
-        </InputGroup>
+        {!LoginRegisterPage && (
+          <InputGroup
+            ml={10}
+            width="300px"
+            borderRadius="md"
+            _focus={{
+              outlineColor: "#000",
+            }}
+          >
+            <InputLeftElement pointerEvents="none" children={<FiSearch />} />
+            <Input type="text" placeholder="Search" borderRadius="2xl" />
+          </InputGroup>
+        )}
       </Box>
 
       <Box display="flex" alignItems="center">
