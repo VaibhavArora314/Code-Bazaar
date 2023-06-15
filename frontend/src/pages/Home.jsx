@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductsCard from '../components/ProductsCard';
+import NavBar from '../components/NavBar';
 
 function Home(props) {
     const product = {
@@ -13,6 +14,7 @@ function Home(props) {
     return (
         <div>
             Home
+            <NavBar/>
             <ProductsCard
             title={product.title}
             image={product.image}
