@@ -41,6 +41,7 @@ const HomeCategoryCards = () => {
 
   return (
     <>
+      {/* <Heading alignSelf="center">Explore Categories</Heading> */}
       <Flex
         gap="1"
         p="2"
