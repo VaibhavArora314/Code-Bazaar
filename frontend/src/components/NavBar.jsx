@@ -11,7 +11,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { FiSearch } from "react-icons/fi";
-import BlackLogo from "../assets/Website Logo/logo-black.png";
+import BlackLogo from "../assets/Website Logo/logo-black-cropped.png";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
@@ -27,11 +27,20 @@ const NavBar = () => {
       color="black"
     >
       <Box display="flex" alignItems="center">
-        <Image src={BlackLogo} h={20} p="0" m="0" />
+        <Link to="/">
+          <Image src={BlackLogo} h={20} p="0" m="0" />
+        </Link>
         {/* <Text fontSize="lg" fontWeight="bold">
           Logo
         </Text> */}
-        <InputGroup ml={10} width="300px" borderRadius="md">
+        <InputGroup
+          ml={10}
+          width="300px"
+          borderRadius="md"
+          _focus={{
+            outlineColor: "#000",
+          }}
+        >
           <InputLeftElement pointerEvents="none" children={<FiSearch />} />
           <Input type="text" placeholder="Search" borderRadius="2xl" />
         </InputGroup>

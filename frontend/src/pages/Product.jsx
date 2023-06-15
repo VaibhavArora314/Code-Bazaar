@@ -20,7 +20,7 @@ export default function ProductPage() {
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         spacing={{ base: "10", md: "16" }}
-        py={{ base: 8, md: 10 }}
+        pt={{ base: 8, md: 10 }}
       >
         <Flex>
           <Image
@@ -39,7 +39,7 @@ export default function ProductPage() {
               lineHeight={1.1}
               fontFamily={"heading"}
               fontWeight={"semibold"}
-              fontSize={{ base: "md", sm: "xl", lg: "2xl" }}
+              fontSize={{ base: "xl", lg: "2xl" }}
             >
               Automatic Watch
             </Heading>
@@ -56,7 +56,7 @@ export default function ProductPage() {
             $350.00 USD
           </Text>
 
-          <Text color={"gray.900"} fontSize={{ base: "md", lg: "lg" }} fontWeight={"hairline"}>
+          <Text color={"gray.900"} fontSize={"md"} fontWeight={"hairline"}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid
             amet at delectus doloribus dolorum expedita hic, ipsum maxime modi
             nam officiis porro, quae, quisquam quos reprehenderit velit? Natus,
@@ -67,13 +67,13 @@ export default function ProductPage() {
             rounded={"lg"}
             w={"fit-content"}
             mt={4}
-            size={"lg"}
+            size={{ base: "md", xl: "lg" }}
             bg={"#232020"}
             color={"white"}
             _hover={{
               transform: "translateY(2px)",
               boxShadow: "lg",
-              bg: "#000"
+              bg: "#000",
             }}
           >
             Buy Now
