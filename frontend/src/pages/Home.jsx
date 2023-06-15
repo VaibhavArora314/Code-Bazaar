@@ -1,10 +1,7 @@
 import React from "react";
-import ProductsCard from "../components/ProductsCard";
-import NavBar from "../components/NavBar";
 import HomeCategoryCards from "../components/HomeCategoryCards";
 import { Flex, Heading } from "@chakra-ui/react";
 import bgImage from "../assets/BackgroundImage.jpg";
-import Footer from "../components/Footer";
 
 function Home(props) {
   const product = {
@@ -33,7 +30,6 @@ function Home(props) {
       </Flex>
 
       <HomeCategoryCards />
-      <Footer/>
     </>
   );
 }

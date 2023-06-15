@@ -9,6 +9,7 @@ import ProductsList from "./pages/ProductsList";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -78,6 +79,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </>
   );
 }
