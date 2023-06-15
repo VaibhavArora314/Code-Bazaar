@@ -6,12 +6,12 @@ import {
   Input,
   Checkbox,
   Stack,
-  Link,
   Button,
   Heading,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
   return (
@@ -21,7 +21,7 @@ export default function LoginPage() {
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
     >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} w="md" py={12} px={6}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>Log In</Heading>
         </Stack>
@@ -40,24 +40,29 @@ export default function LoginPage() {
               <FormLabel>Password</FormLabel>
               <Input type="password" />
             </FormControl>
-            <Stack spacing={10}>
-              <Stack
-                direction={{ base: "column", sm: "row" }}
-                align={"start"}
-                justify={"space-between"}
-              >
-                <Checkbox>Remember me</Checkbox>
-                <Link color={"blue.400"}>Forgot password?</Link>
-              </Stack>
+            <Stack spacing={8}>
               <Button
-                bg={"blue.400"}
+                bg={"#232020"}
                 color={"white"}
                 _hover={{
-                  bg: "blue.500",
+                  bg: "#000",
                 }}
               >
                 Sign in
               </Button>
+              <Stack>
+                <Text align={"center"}>
+                  Don't have an account?{" "}
+                  <Link
+                    style={{
+                      color: "#55aaff",
+                    }}
+                    to="/register"
+                  >
+                    Register
+                  </Link>
+                </Text>
+              </Stack>
             </Stack>
           </Stack>
         </Box>

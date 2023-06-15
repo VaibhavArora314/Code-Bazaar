@@ -12,8 +12,8 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Link,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
@@ -78,10 +78,10 @@ export default function Register() {
               <Button
                 loadingText="Submitting"
                 size="lg"
-                bg={"blue.400"}
+                bg={"#232020"}
                 color={"white"}
                 _hover={{
-                  bg: "blue.500",
+                  bg: "#000",
                 }}
               >
                 Sign up
@@ -89,7 +89,15 @@ export default function Register() {
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                Already a user? <Link color={"blue.400"}>Login</Link>
+                Already a user?{" "}
+                <Link
+                  style={{
+                    color: "#55aaff",
+                  }}
+                  to="/login"
+                >
+                  Login
+                </Link>
               </Text>
             </Stack>
           </Stack>

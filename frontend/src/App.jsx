@@ -12,7 +12,7 @@ import Profile from "./pages/Profile";
 function App() {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LogIn />} />
