@@ -38,7 +38,7 @@ function ProductsCard({ product }) {
           {product.title}
         </Heading>
         <Text fontWeight={800} fontSize={"xl"}>
-          ${product.price}
+          ₹{product.price}
         </Text>
       </Stack>
     </Box>

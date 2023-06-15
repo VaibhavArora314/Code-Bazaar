@@ -11,8 +11,35 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import DemoProduct from "../assets/Products/Demo.jpg";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function ProductPage() {
+  const [product, setProduct] = useState({});
+  const [error, setError] = useState(false);
+  const { id } = useParams();
+
+  useEffect(() => {
+    // Fetch all listings from the API
+    axios
+      .get(
+        `http://localhost:4000/api/listings/${id}`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+        setProduct(response.data);
+      })
+      .catch((error) => {
+        setError(true);
+      });
+  }, []);
   return (
     <Container maxW={"7xl"} px="20" pb="10">
       <SimpleGrid
@@ -24,7 +51,8 @@ export default function ProductPage() {
           <Image
             rounded={"3xl"}
             alt={"product image"}
-            src={DemoProduct}
+            src={product?.image}
+            fallbackSrc={DemoProduct}
             fit={"cover"}
             align={"center"}
             w={"100%"}
@@ -39,10 +67,10 @@ export default function ProductPage() {
               fontWeight={"semibold"}
               fontSize={{ base: "xl", lg: "2xl" }}
             >
-              Automatic Watch
+              {product.title}
             </Heading>
             <Text color={"gray.600"} fontSize={{ base: "sm", lg: "md" }}>
-              Owned by UserXYZ
+              Owned by {product.sellerName ? product.sellerName : "UserXYZ"}
             </Text>
           </Box>
 
@@ -51,14 +79,12 @@ export default function ProductPage() {
             fontWeight={300}
             fontSize={{ base: "md", lg: "xl" }}
           >
-            $350.00 USD
+            ₹{product.price}
           </Text>
 
           <Text color={"gray.900"} fontSize={"md"} fontWeight={"hairline"}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid
-            amet at delectus doloribus dolorum expedita hic, ipsum maxime modi
-            nam officiis porro, quae, quisquam quos reprehenderit velit? Natus,
-            totam.
+            <strong>Description: </strong>
+            {product.description}
           </Text>
 
           <Button
