@@ -1,0 +1,21 @@
+
+1. User Endpoints:
+- `/api/users/register` (POST): Register a new user.
+- `/api/users/login` (POST): Authenticate a user and generate an access token.
+- `/api/users/logout` (POST): Invalidate the access token and log out the user.
+- `/api/users/profile` (GET): Get the profile information of the currently authenticated user.
+- `/api/users/profile` (PUT): Update the profile information of the currently authenticated user.
+
+2. Code Listings Endpoints:
+- `/api/listings` (GET): Get a list of code listings from the marketplace.
+- `/api/listings/:id` (GET): Get details of a specific code listing by its ID.
+- `/api/listings` (POST): Create a new code listing.
+- `/api/listings/:id` (PUT): Update the details of a specific code listing by its ID.
+- `/api/listings/:id` (DELETE): Delete a specific code listing by its ID.
+
+3. Transaction Endpoints:
+- `/api/transactions` (GET): Get a list of transactions (purchases) made by the user.
+- `/api/transactions/:id` (GET): Get details of a specific transaction by its ID.
+- `/api/transactions` (POST): Initiate a new transaction (purchase) for a code listing.  --> razor pay
+- `/api/transactions/:id` (PUT): Update the details of a specific transaction by its ID.
+- `/api/transactions/:id` (DELETE): Cancel a specific transaction by its ID.
