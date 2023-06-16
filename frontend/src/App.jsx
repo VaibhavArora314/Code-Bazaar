@@ -63,10 +63,10 @@ function App() {
         <Route
           path="/profile"
           element={
-            <>
+            <ProtectedRoute>
               <NavBar />
               <Profile />
-              </>
+              </ProtectedRoute>
           }
         />
         <Route
