@@ -9,6 +9,7 @@ import {
   Heading,
   SimpleGrid,
   useColorModeValue,
+  Link,
 } from "@chakra-ui/react";
 import DemoProduct from "../assets/Products/Demo.jpg";
 import { useParams } from "react-router-dom";
@@ -108,9 +109,7 @@ export default function ProductPage() {
               boxShadow: "lg",
               bg: "#000",
             }}
-          >
-            Buy Now
-          </Button>
+          ></Button>
         </Stack>
       </SimpleGrid>
     </Container>
